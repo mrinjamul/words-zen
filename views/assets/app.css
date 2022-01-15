@@ -1,10 +1,33 @@
+/*
+ * app.css
+ */
+
+/* Variables */
+:root {
+  /* Light theme */
+  --accent: #ffc107;
+  --bg: #fafafa;
+  --sbg: #fafafa;
+  --fg: #212121;
+  --sfg: #212121;
+}
+
+/* Dark theme */
+.dark-mode {
+  --accent: #ffc107;
+  --bg: #212121;
+  --sbg: #212121;
+  --fg: #eceff1;
+  --sfg: #ffffff;
+}
+
 html,
 body {
   width: 100%;
   height: 100%;
   margin: 0;
 
-  background: #212121;
+  background: var(--bg);
 }
 
 * {
@@ -33,7 +56,7 @@ body {
   justify-content: center;
   text-align: center;
   padding: 0 1.5rem;
-  color: #eceff1;
+  color: var(--fg);
 }
 
 h1 {
@@ -41,7 +64,7 @@ h1 {
   font-weight: bold;
   font-style: italic;
   font-size: 3.75rem;
-  color: white;
+  color: var(--sfg);
   line-height: 1;
 
   margin-bottom: 1rem;
@@ -54,13 +77,13 @@ h1 span {
 
 .subtitle {
   font-size: 1.25rem;
-  color: #eceff1;
+  color: var(--fg);
   line-height: 1.625;
 }
 
 .output {
   font-size: 1.25rem;
-  color: #eceff1;
+  color: var(--fg);
   line-height: 1.625;
 }
 
@@ -78,7 +101,7 @@ hr {
   display: inline-block;
   width: 100%;
 
-  color: white;
+  color: var(--sbg);
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.5rem;
@@ -117,7 +140,7 @@ hr {
   width: 100%;
 
   text-align: center;
-  color: #eceff1;
+  color: var(--fg);
   font-size: 1rem;
 
   padding: 1.5rem 0;

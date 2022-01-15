@@ -7,13 +7,13 @@
     <title>Words Zen</title>
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="stylesheet" href="assets/base.css" />
-    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/app.css" />
   </head>
   <body>
     <div class="container">
       <div class="day-night">
         <div id="daynight" style="cursor: pointer">
-          <div>
+          <div id="themeButton">
             <svg
               style="
                 width: 36;
@@ -50,20 +50,7 @@
         made with ❤️ by <a href="https://mrinjamul.in">Injamul M</a>
       </p>
     </div>
-    <script>
-      /*
-       * main.js
-       */
-
-      fetch("/api/a $adjective $noun")
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          document.getElementById("example").innerHTML = `
-          <div>
-              <h3> ${data.phrase} </h3>
-          </div>`;
-        });
-    </script>
+    <script src="assets/app.js"></script>
+    <script src="assets/client.js"></script>
   </body>
 </html>
