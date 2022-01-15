@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Words Zen</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="assets/base.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="day-night">
+        <div id="daynight" style="cursor: pointer">
+          <div>
+            <svg
+              style="
+                width: 36;
+                height: 36;
+                color: #eceff1;
+                display: inline-block;
+              "
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokelinecap="round"
+                strokelinejoin="round"
+                strokewidth="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper">
+        <h1><span>Words</span> as a Service</h1>
+        <p class="subtitle">
+          A simple API to generate unique randomized words & phrases.
+        </p>
+        <div class="buttons">
+          <a href="https://github.com/mrinjamul/words-zen">View on GitHub</a>
+        </div>
+        <div id="example" class="output"></div>
+      </div>
+      <p class="credits">
+        made with ❤️ by <a href="https://mrinjamul.in">Injamul M</a>
+      </p>
+    </div>
+    <script>
+      /*
+       * main.js
+       */
+
+      fetch("/api/a $adjective $noun")
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          document.getElementById("example").innerHTML = `
+          <div>
+              <h3> ${data.phrase} </h3>
+          </div>`;
+        });
+    </script>
+  </body>
+</html>
