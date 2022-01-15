@@ -11,7 +11,7 @@ import (
 
 func main() {
 	// Get port from env
-	port := "3000"
+	port := ":3000"
 	_, present := os.LookupEnv("PORT")
 	if present {
 		port = ":" + os.Getenv("PORT")
@@ -23,5 +23,5 @@ func main() {
 	// Initialize the routes
 	routes.InitRoutes(server)
 	// Start and run the server
-	log.Fatal(server.Run(":" + port))
+	log.Fatal(server.Run(port))
 }
