@@ -18,6 +18,9 @@ func vowelTester(word string) bool {
 
 func PhraseResolver(query string) string {
 	words := strings.Fields(query)
+	if strings.Contains(query, ",") {
+		words = strings.Split(query, ",")
+	}
 	phrase := phraseGenerator(words)
 	if words[0] == "a" {
 		if vowelTester(phrase) {
@@ -35,7 +38,9 @@ func phraseGenerator(words []string) string {
 		if (word == "a" && id == 0) || word == "" {
 			continue
 		}
-		word = strings.Replace(word, "$", "", -1)
+		// Trim word for trailing character
+		word = strings.Trim(word, "$")
+		word = strings.TrimSpace(word)
 		// get randow word here
 		word = db.GetWordByType(word)
 		phrase += word + " "
