@@ -2,10 +2,13 @@ package db
 
 import (
 	"bufio"
+	"embed"
 	"math/rand"
-	"os"
 	"time"
 )
+
+//go:embed data/*
+var datafs embed.FS
 
 var (
 	allWordTypes []string = []string{"adjective", "adverb", "animal", "bodyPart", "gerund", "noun", "pluralNoun", "verb"}
@@ -48,7 +51,7 @@ func GetWordByType(types string) string {
 func getWordFile(wordtype string) []string {
 	var words []string
 	// read file content from data folder
-	file, err := os.Open("db/data/" + wordtype + "s.txt")
+	file, err := datafs.Open("data/" + wordtype + "s.txt")
 	if err != nil {
 		return nil
 	}
