@@ -1,6 +1,7 @@
 package main
 
 import (
+	"embed"
 	"log"
 	"os"
 
@@ -8,6 +9,9 @@ import (
 
 	"github.com/gin-gonic/gin"
 )
+
+//go:embed views/*
+var viewsFs embed.FS
 
 func main() {
 	// Get port from env
@@ -21,6 +25,7 @@ func main() {
 	// Set the router as the default one shipped with Gin
 	server := gin.Default()
 	// Initialize the routes
+	routes.ViewsFs = viewsFs
 	routes.InitRoutes(server)
 	// Start and run the server
 	log.Fatal(server.Run(port))
